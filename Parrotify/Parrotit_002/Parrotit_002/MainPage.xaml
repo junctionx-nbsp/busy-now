@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Parrotify"
+             x:Class="Parrotify.MainPage" >
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Color x:Key="primary">#124191</Color>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Spacing="10" >
+
+        <Label HeightRequest="110"
+       HorizontalOptions="FillAndExpand"
+       Text="Parrotify"
+               
+               FontAttributes="Bold"
+       BackgroundColor="{StaticResource primary}"
+       TextColor="White"
+       FontSize="40"
+       HorizontalTextAlignment="Center"
+       VerticalTextAlignment="Center"/>
+        <Label x:Name="UserNumberAndStatus" HeightRequest="20"
+               HorizontalOptions="FillAndExpand"
+               Text=""
+               BackgroundColor="{StaticResource primary}"
+               TextColor="White"
+               FontSize="12"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
+                <ListView Margin="20,0,20,0" x:Name="lstView" HeightRequest="400" IsEnabled="False">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <!--Messageand unMessagelines to see each cell type-->
+              <TextCell Text="{Binding Number}" Detail="{Binding Text}"  TextColor="#124191"/>
+              <!--<ImageCell Text="{Binding name}" Detail="{Binding comment}" ImageSource="{Binding image}" />-->
+              <!--<SwitchCell Text="{Binding name}" On="{Binding isReallyAVeggie}" />-->
+              <!--<EntryCell Label="{Binding name}" Text="{Binding comment}" />-->
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+
+
+        <!--<Label Margin="20,40,20,0"
+       Text="Press PASTE or write a message!"
+       FontSize="Large"
+       HorizontalOptions="Center"
+       TextColor="{StaticResource primary}"/>-->
+
+        <!--<Button Margin="20,140,20,0"
+        Text="PASTE!"
+        FontSize="Medium"
+        HorizontalOptions="Center"
+        TextColor="{StaticResource primary}"/>-->
+
+        <Grid Margin="20,20,20,0">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="55" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Button FontSize="Small" Text="📋 PASTE" Grid.Row="0" Grid.Column="0" WidthRequest="40" x:Name="PasteButton" Clicked="PasteButton_OnClicked"/>
+          <Button FontSize="Small" Text="❌ EMPTY" Grid.Row="0" Grid.Column="1" WidthRequest="40" Clicked="EmptyButton_OnClicked"/>
+
+          <Picker x:Name="ChannelPicker" Title="Ch #0" Grid.Row="0" Grid.Column="2" >
+            <Picker.Items>
+              <x:String>0</x:String>
+              <x:String>1</x:String>
+              <x:String>2</x:String>
+              <x:String>3</x:String>
+              <x:String>4</x:String>
+              <x:String>5</x:String>
+              <x:String>6</x:String>
+              <x:String>7</x:String>
+              <x:String>8</x:String>
+              <x:String>9</x:String>
+            </Picker.Items>
+          </Picker>
+          <Entry x:Name="InputMessage"
+                  FontSize="Small"
+                  Placeholder="Press PASTE or write a message!"
+                  HorizontalOptions="FillAndExpand"
+                  Grid.Row="1" Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                            />
+          <Button  Margin="0,0,0,5" FontSize="Large"  Text="🐦" WidthRequest="60" Grid.Row="1" Grid.Column="2" BorderWidth="2" BorderColor="#124191" Clicked="SendButton_OnClicked"/>
+
+        </Grid>
+
+
+
+
+        <!--<Grid Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="180" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="180" />
+                </Grid.ColumnDefinitions>
+                  <Label
+                         Text="Pick a channel"
+                         FontSize="Small"
+                         HorizontalOptions="Center"
+                         TextColor="{StaticResource primary}"  Grid.Row="0" Grid.Column="0"  />
+
+              </Grid>-->
+
+
+
+
+
+        <!--<Button Margin="80,20,80,0"
+        HeightRequest="60"
+        TextColor="White"
+        Text="Send"
+                        FontSize="Medium"
+        BackgroundColor="{StaticResource primary}"
+        HorizontalOptions="FillAndExpand"/>-->
+
+        <!--<Label Text="How does it even work?"
+       Margin="20,90,20,0"
+       HorizontalOptions="Center"
+       TextColor="{StaticResource primary}"/>-->
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>
